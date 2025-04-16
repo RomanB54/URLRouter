@@ -9,6 +9,8 @@ export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
 export const PREFIX = '/URLRouter/';
 
+const isProd = NODE_ENV === 'production';
+
 const config: webpack.Configuration = {
   entry: './src/index.ts',
   output: {
@@ -49,9 +51,9 @@ const config: webpack.Configuration = {
       filename: '404.html',
     }),
     new webpack.DefinePlugin({
-      PRODUCTION: NODE_ENV == 'production',
+      PRODUCTION: JSON.stringify(isProd),
       PREFIX: JSON.stringify(PREFIX),
-      PUBLIC_URL: JSON.stringify(NODE_ENV ? PREFIX : '/'),
+      PUBLIC_URL: JSON.stringify(isProd ? PREFIX : '/'),
     }),
   ],
   devServer: {
