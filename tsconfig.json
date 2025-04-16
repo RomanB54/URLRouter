@@ -1,11 +1,11 @@
 {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "esModuleInterop": true,
-      "moduleResolution": "Node"
-    },
-    "ts-node": {
-      "esm": true,
-      "experimentalSpecifierResolution": "node"
-    }
+  "compilerOptions": {
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   }
+}
