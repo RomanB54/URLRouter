@@ -9,6 +9,14 @@ if (app) {
 
 const router = new Router();
 
+if (PRODUCTION) {
+  document
+    .querySelectorAll('nav a')
+    .forEach((link: HTMLAnchorElement): void => {
+      link.href = PREFIX + link.pathname;
+    });
+}
+
 router.addRoute({
   path: '/home',
   render: () => `<h1>Главная страница</h1><p>Главная!</p>`,

@@ -5,9 +5,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 type Mode = 'none' | 'development' | 'production' | undefined;
 
-const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
+export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
-const PREFIX = '/webpack-gh-pages';
+export const PREFIX = '/webpack-gh-pages';
 
 const config: webpack.Configuration = {
   entry: './src/index.ts',
