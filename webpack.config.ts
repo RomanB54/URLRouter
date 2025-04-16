@@ -46,7 +46,10 @@ const config: webpack.Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      publicPath: publicPath,
+      inject: true,
+      templateParameters: {
+        baseHref: isProd ? '/URLRouter/' : '/',
+      },
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
