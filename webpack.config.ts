@@ -10,7 +10,7 @@ export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 export const PREFIX = '/URLRouter/';
 
 const isProd = process.env.NODE_ENV === 'production';
-const publicPath = isProd ? '/URLRouter' : '/';
+const publicPath = isProd ? '/URLRouter/' : '/';
 
 const config: webpack.Configuration = {
   entry: './src/index.ts',
@@ -53,7 +53,7 @@ const config: webpack.Configuration = {
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(isProd),
       PREFIX: JSON.stringify(isProd ? PREFIX : '/'),
-      PUBLIC_URL: JSON.stringify(isProd ? PREFIX : '/'),
+      PUBLIC_URL: JSON.stringify(publicPath),
     }),
   ],
   devServer: {

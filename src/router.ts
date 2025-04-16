@@ -10,9 +10,11 @@ export class Router {
   private routes: Route[] = [];
   private currentRoute: Route | null = null;
   private useHistoryAPI: boolean;
+  private baseUrl: string;
 
   constructor(useHistoryAPI: boolean = true) {
     this.useHistoryAPI = useHistoryAPI;
+    this.baseUrl = PRODUCTION ? PREFIX : '/';
 
     const eventHandler = this.handleRoute.bind(this);
 
@@ -33,11 +35,12 @@ export class Router {
     if (this.currentRoute && this.currentRoute.onLeave) {
       await this.currentRoute.onLeave();
     }
+    const fullPath = this.baseUrl + path.replace(/^\//, '');
 
     if (this.useHistoryAPI) {
-      history.pushState({}, '', path);
+      history.pushState({}, '', fullPath);
     } else {
-      window.location.hash = path;
+      window.location.hash = fullPath;
     }
 
     await this.handleRoute();
@@ -47,6 +50,7 @@ export class Router {
     const path = this.useHistoryAPI
       ? window.location.pathname
       : window.location.hash.slice(1);
+
     const route = this.routes.find((rt) =>
       rt.path instanceof RegExp ? rt.path.test(path) : rt.path === path,
     );
