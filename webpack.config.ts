@@ -17,11 +17,7 @@ const config: webpack.Configuration = {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    clean: true,
-    environment: {
-      arrowFunction: false,
-    },
-    publicPath: publicPath,
+    publicPath: isProd ? '/URLRouter/' : '/',
   },
   resolve: {
     extensions: ['.js', '.ts'],
@@ -46,10 +42,6 @@ const config: webpack.Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      inject: true,
-      templateParameters: {
-        baseHref: isProd ? '/URLRouter/' : '/',
-      },
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
