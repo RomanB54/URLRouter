@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    publicPath: '/URLRouter/',
+    publicPath: isProd ? PREFIX : '/',
   },
   resolve: {
     extensions: ['.js', '.ts'],
@@ -42,6 +42,8 @@ const config: webpack.Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
+      inject: true,
+      publicPath: publicPath,
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
@@ -49,7 +51,7 @@ const config: webpack.Configuration = {
     }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(isProd),
-      PREFIX: JSON.stringify(PREFIX),
+      PREFIX: JSON.stringify(isProd ? PREFIX : '/'),
       PUBLIC_URL: JSON.stringify(isProd ? PREFIX : '/'),
     }),
   ],
