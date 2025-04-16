@@ -34,6 +34,10 @@ const config: webpack.Configuration = {
           },
         },
       },
+      {
+        test: /\.css$/, // Match .css files
+        use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
+      },
     ],
   },
   plugins: [
