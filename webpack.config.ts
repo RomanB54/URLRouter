@@ -9,7 +9,8 @@ export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
 export const PREFIX = '/URLRouter/';
 
-const isProd = NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production';
+const publicPath = isProd ? '/URLRouter/' : '/';
 
 const config: webpack.Configuration = {
   entry: './src/index.ts',
@@ -20,7 +21,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    publicPath: NODE_ENV === 'production' ? PREFIX : '/',
+    publicPath: publicPath,
   },
   resolve: {
     extensions: ['.js', '.ts'],
