@@ -7,7 +7,7 @@ type Mode = 'none' | 'development' | 'production' | undefined;
 
 export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
-export const PREFIX = '/webpack-gh-pages';
+export const PREFIX = '/URLRouter';
 
 const config: webpack.Configuration = {
   entry: './src/index.ts',
