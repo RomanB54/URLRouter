@@ -57,7 +57,7 @@ export class Router {
       if (route.onBeforeEnter) {
         await route.onBeforeEnter();
       }
-      this.currentRoute = route; 
+      this.currentRoute = route;
       divForContent.innerHTML = route.render();
       if (route.onEnter) {
         await route.onEnter();

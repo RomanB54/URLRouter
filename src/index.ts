@@ -1,5 +1,6 @@
 import { initPage } from './initPage';
 import { Router } from './router';
+import './style.css';
 
 const app = document.querySelector('.app') as HTMLDivElement;
 if (app) {
