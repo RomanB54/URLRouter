@@ -35,12 +35,12 @@ export class Router {
     if (this.currentRoute && this.currentRoute.onLeave) {
       await this.currentRoute.onLeave();
     }
-    const fullPath = path.replace(/^\//, '');
+    // const fullPath =  path.replace(/^\//, '');
 
     if (this.useHistoryAPI) {
-      history.pushState({}, '', fullPath);
+      history.pushState({}, '', path);
     } else {
-      window.location.hash = fullPath;
+      window.location.hash = path;
     }
 
     await this.handleRoute();
