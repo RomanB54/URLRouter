@@ -7,7 +7,7 @@ type Mode = 'none' | 'development' | 'production' | undefined;
 
 export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
-export const PREFIX = '/URLRouter/';
+// export const PREFIX = '/URLRouter/';
 
 const isProd = process.env.NODE_ENV === 'production';
 const publicPath = isProd ? '/URLRouter/' : '/';
@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    publicPath: isProd ? PREFIX : '/',
+    // publicPath: isProd ? PREFIX : '/',
   },
   resolve: {
     extensions: ['.js', '.ts'],
