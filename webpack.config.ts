@@ -43,7 +43,7 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       inject: true,
-      publicPath: publicPath,
+      // publicPath: publicPath,
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
@@ -52,7 +52,7 @@ const config: webpack.Configuration = {
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(isProd),
       PREFIX: JSON.stringify(isProd ? PREFIX : '/'),
-      PUBLIC_URL: JSON.stringify(publicPath),
+      // PUBLIC_URL: JSON.stringify(publicPath),
     }),
   ],
   devServer: {
