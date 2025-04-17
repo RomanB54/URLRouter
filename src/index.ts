@@ -9,6 +9,15 @@ if (app) {
 
 const router = new Router();
 
+if (PRODUCTION) {
+  document
+    .querySelectorAll('nav a')
+    .forEach((link: HTMLAnchorElement): void => {
+      const rawHref = link.getAttribute('href') || '';
+      link.href = rawHref.replace(/^\//, '');
+    });
+}
+
 router.addRoute({
   path: /\/home$/,
   render: () => `<h1>Главная страница</h1><p>Главная!</p>`,
