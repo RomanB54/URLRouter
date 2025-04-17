@@ -35,7 +35,7 @@ export class Router {
     if (this.currentRoute && this.currentRoute.onLeave) {
       await this.currentRoute.onLeave();
     }
-    const fullPath = this.baseUrl + path.replace(/^\//, '');
+    const fullPath = path.replace(/^\//, '');
 
     if (this.useHistoryAPI) {
       history.pushState({}, '', fullPath);
