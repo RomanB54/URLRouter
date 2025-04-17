@@ -9,14 +9,14 @@ if (app) {
 
 const router = new Router();
 
-if (PRODUCTION) {
-  document
-    .querySelectorAll('nav a')
-    .forEach((link: HTMLAnchorElement): void => {
-      const rawHref = link.getAttribute('href') || '';
-      link.href = rawHref.replace(/^\//, '');
-    });
-}
+// if (PRODUCTION) {
+//   document
+//     .querySelectorAll('nav a')
+//     .forEach((link: HTMLAnchorElement): void => {
+//       const rawHref = link.getAttribute('href') || '';
+//       link.href = rawHref.replace(/^\//, '');
+//     });
+// }
 
 router.addRoute({
   path: /^\/home$/,
