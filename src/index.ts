@@ -13,7 +13,8 @@ if (PRODUCTION) {
   document
     .querySelectorAll('nav a')
     .forEach((link: HTMLAnchorElement): void => {
-      link.href = '/URLRouter' + link.pathname;
+      const rawHref = link.getAttribute('href') || '';
+      link.href = PUBLIC_URL + rawHref.replace(/^\//, '');
     });
 }
 
