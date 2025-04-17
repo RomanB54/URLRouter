@@ -48,7 +48,6 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       filename: '404.html',
-      publicPath: publicPath,
     }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(isProd),
