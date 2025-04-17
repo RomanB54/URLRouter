@@ -17,7 +17,6 @@ const config: webpack.Configuration = {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    // publicPath: isProd ? PREFIX : '/',
   },
   resolve: {
     extensions: ['.js', '.ts'],
