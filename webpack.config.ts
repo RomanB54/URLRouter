@@ -5,20 +5,18 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 type Mode = 'none' | 'development' | 'production' | undefined;
 
-const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
+export const NODE_ENV: Mode = process.env.NODE_ENV as Mode;
 
-const PREFIX = '/webpack-gh-pages';
+export const PREFIX = '/URLRouter/';
+
+const isProd = process.env.NODE_ENV === 'production';
+const publicPath = isProd ? '/URLRouter/' : '/';
 
 const config: webpack.Configuration = {
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    clean: true,
-    environment: {
-      arrowFunction: false,
-    },
-    publicPath: NODE_ENV === 'production' ? PREFIX : '/',
   },
   resolve: {
     extensions: ['.js', '.ts'],
@@ -34,19 +32,26 @@ const config: webpack.Configuration = {
           },
         },
       },
+      {
+        test: /\.css$/, // Match .css files
+        use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
+      inject: true,
+      publicPath: publicPath,
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       filename: '404.html',
     }),
     new webpack.DefinePlugin({
-      PRODUCTION: NODE_ENV == 'production',
-      PREFIX: JSON.stringify(PREFIX),
+      PRODUCTION: JSON.stringify(isProd),
+      PREFIX: JSON.stringify(isProd ? PREFIX : '/'),
+      PUBLIC_URL: JSON.stringify(publicPath),
     }),
   ],
   devServer: {
