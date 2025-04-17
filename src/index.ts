@@ -14,7 +14,7 @@ if (PRODUCTION) {
     .querySelectorAll('nav a')
     .forEach((link: HTMLAnchorElement): void => {
       const rawHref = link.getAttribute('href') || '';
-      link.href = PUBLIC_URL + rawHref.replace(/^\//, '');
+      link.href = rawHref.replace(/^\//, '');
     });
 }
 
