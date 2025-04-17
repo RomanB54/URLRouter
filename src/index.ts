@@ -19,7 +19,7 @@ const router = new Router();
 // }
 
 router.addRoute({
-  path: /^\/home$/,
+  path: /\/home$/,
   render: () => `<h1>Главная страница</h1><p>Главная!</p>`,
   onBeforeEnter: async () => {
     console.log('Before entering Home');
@@ -33,7 +33,7 @@ router.addRoute({
 });
 
 router.addRoute({
-  path: /^\/contacts$/,
+  path: /\/contacts$/,
   render: () => `<h1>Контакты</h1><p>Наши контакты.</p>`,
   onBeforeEnter: async () => {
     console.log('Before entering Contacts');
@@ -47,7 +47,7 @@ router.addRoute({
 });
 
 router.addRoute({
-  path: /^\/about$/,
+  path: /\/about$/,
   render: () => `<h1>О нас</h1><p>Это о нас.</p>`,
   onBeforeEnter: async () => {
     console.log('Before entering About');
@@ -61,7 +61,7 @@ router.addRoute({
 });
 
 router.addRoute({
-  path: /^\/about\/us$/,
+  path: /\/about\/us$/,
   render: () => `<h1>О нас2</h1><p>Это о нас2.</p>`,
   onBeforeEnter: async () => {
     console.log('Before entering About / Us');
@@ -75,7 +75,7 @@ router.addRoute({
 });
 
 router.addRoute({
-  path: /^\/login$/,
+  path: /\/login$/,
   render: () => `<h1>Авторизация</h1><p>Авторизация</p>`,
   onBeforeEnter: async () => {
     console.log('Before entering Login');
